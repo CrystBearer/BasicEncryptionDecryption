@@ -6,16 +6,18 @@ public class Rot13 implements Algorithm {
         String output = "";
         int shift =  Integer.parseInt(key);
         for(char s: input.toCharArray()){
-            if(!Character.isAlphabetic(s)) {
+            if(Character.isWhitespace(s)){
                 output += s;
                 continue;
             } else {
                 int sum = s + shift;
                 char o =(char) (sum);
-                if(sum > (int) 'z' && !Character.isUpperCase(s) || sum > (int) 'Z' && Character.isUpperCase(s)) {
-                    o = (char)(o - 26);
+                if(Character.isAlphabetic(s)) {
+                    if (sum > (int) 'z' && !Character.isUpperCase(s) || sum > (int) 'Z' && Character.isUpperCase(s)) {
+                        o = (char) (o - 26);
+                    }
+                    output += o;
                 }
-                output += o;
             }
         }
         return output;
@@ -25,14 +27,16 @@ public class Rot13 implements Algorithm {
         String output = "";
         int shift =  Integer.parseInt(key);
         for(char s: input.toCharArray()){
-            if(!Character.isAlphabetic(s)) {
+            if(Character.isWhitespace(s)){
                 output += s;
                 continue;
             } else {
                 int sum = s - shift;
                 char o =(char) (sum);
-                if(sum < (int) 'a' && !Character.isUpperCase(s) || sum < (int) 'A' && Character.isUpperCase(s)) {
-                    o = (char)(o + 26);
+                if(Character.isAlphabetic(s)){
+                    if(sum < (int) 'a' && !Character.isUpperCase(s) || sum < (int) 'A' && Character.isUpperCase(s)) {
+                        o = (char)(o + 26);
+                    }
                 }
                 output += o;
             }
