@@ -6,4 +6,15 @@ import org.junit.Test;
  */
 public class EncryptTest {
 
+    @Test
+    public void encryptStringTest(){
+
+    }
+
+    @Test
+    public void encryptFileTest(){
+
+    }
+
+
 }

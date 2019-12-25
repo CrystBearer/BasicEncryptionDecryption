@@ -6,4 +6,15 @@ import org.junit.Test;
  */
 public class DecryptTest {
 
+    @Test
+    public void decryptStringTest(){
+
+    }
+
+    @Test
+    public void decryptFileTest(){
+
+    }
+
+
 }

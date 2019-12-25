@@ -1,4 +1,4 @@
-import java.io.File;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -18,12 +18,25 @@ public class Decrypt {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter key: ");
         String key = scan.next();
+        String decryptedOutput = "";
         if(this.algorithms.containsKey(name)){
-            String decryptedOutput = this.algorithms.get(name).decrypt(input,key);
-            return decryptedOutput;
+            try {
+                BufferedReader br =  new BufferedReader(new FileReader(input));
+                String fileContent = "";
+                while(br.ready()){
+                    fileContent += br.readLine();
+                }
+                decryptedOutput = this.algorithms.get(name).decrypt(fileContent,key);
+                br.close();
+            } catch (FileNotFoundException err) {
+                System.out.println(err.getMessage() + ": Could not find " + input.getName());
+            } catch (IOException err){
+                System.out.println(err.getMessage() + ": Could not find " + input.getName());
+            }
         } else {
             throw new RuntimeException("\""+input+"\"" + " algorithm does not exist.");
         }
+        return decryptedOutput;
     }
 
 
@@ -55,7 +68,12 @@ public class Decrypt {
             throw new RuntimeException("Too few arguments entered.");
         } else {
             Decrypt decryptObject = new Decrypt();
-            decryptObject.decrypt(args[1], args[0].toLowerCase());
+            File encryptedFile = new File(args[1]);
+            if(encryptedFile.exists() && encryptedFile.isFile()){
+                System.out.println(decryptObject.decrypt(encryptedFile, args[0].toLowerCase()));
+            } else {
+                System.out.println(decryptObject.decrypt(args[1], args[0].toLowerCase()));
+            }
         }
     }
 }
