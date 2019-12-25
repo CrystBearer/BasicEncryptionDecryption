@@ -1,5 +1,6 @@
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
 
 /**
  * Testing class for Encrypt Class
@@ -12,9 +13,13 @@ public class EncryptTest {
     }
 
     @Test
-    public void encryptFileTest(){
+    public void encryptFile13Test(){
 
     }
 
+    @Test
+    public void encryptFile24Test(){
+
+    }
 
 }

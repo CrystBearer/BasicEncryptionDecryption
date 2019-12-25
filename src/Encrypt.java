@@ -14,8 +14,8 @@ public class Encrypt {
 
     /**
      * Encrypts the given File
-     * @param input
-     * @return String
+     * @param input File of the given path from the command line
+     * @return String name of the algorithm given
      */
     public String encrypt(File input, String name){
         Scanner scan = new Scanner(System.in);
@@ -45,8 +45,8 @@ public class Encrypt {
 
     /**
      * Encrypts the given string input
-     * @param input
-     * @return String
+     * @param input File of the given path from the command line
+     * @return String name of the algorithm given
      */
     public String encrypt(String input, String name){
         Scanner scan = new Scanner(System.in);
