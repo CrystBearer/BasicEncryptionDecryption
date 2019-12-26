@@ -12,7 +12,7 @@ public class Rot13 implements Algorithm {
         String output = "";
         int shift =  Integer.parseInt(key);
         for(char s: input.toCharArray()){
-            if(Character.isWhitespace(s)){
+            if(!Character.isAlphabetic(s)){
                 output += s;
                 continue;
             } else {
@@ -39,7 +39,7 @@ public class Rot13 implements Algorithm {
         String output = "";
         int shift =  Integer.parseInt(key);
         for(char s: input.toCharArray()){
-            if(Character.isWhitespace(s)){
+            if(!Character.isAlphabetic(s)){
                 output += s;
                 continue;
             } else {
