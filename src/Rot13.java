@@ -1,7 +1,13 @@
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
-
+/**
+ * Algorithm that shifts the character by the key
+ */
 public class Rot13 implements Algorithm {
+    /**
+     * Encrypts the given string input
+     * @param input Plaintext to encrypt
+     * @param key used to decrypt by that value
+     * @return String of the decrypted string
+     */
     public String encrypt(String input, String key){
         String output = "";
         int shift =  Integer.parseInt(key);
@@ -16,13 +22,19 @@ public class Rot13 implements Algorithm {
                     if (sum > (int) 'z' && !Character.isUpperCase(s) || sum > (int) 'Z' && Character.isUpperCase(s)) {
                         o = (char) (o - 26);
                     }
-                    output += o;
                 }
+                output += o;
             }
         }
         return output;
     }
 
+    /**
+     * Decrypts the given string input
+     * @param input Ciphertext to decrypt
+     * @param key used to decrypt by that value
+     * @return String of the decrypted string
+     */
     public String decrypt(String input, String key){
         String output = "";
         int shift =  Integer.parseInt(key);
