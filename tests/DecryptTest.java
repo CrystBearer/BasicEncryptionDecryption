@@ -81,6 +81,7 @@ public class DecryptTest {
         System.setIn(in);
         output = enc.encrypt(new File(currentDirectory), "bacon");
         assertEquals(expected,output);
+
     }
 
 }
