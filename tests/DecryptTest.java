@@ -58,29 +58,4 @@ public class DecryptTest {
         assertEquals(expected,output);
     }
 
-    @Test
-    public void decryptBaconianTest(){
-        String expected = "";
-        String output = "";
-        try {
-            File actualFile = new File("tests/DecryptedBaconian.txt");
-            String currentDirectoryExpected = actualFile.getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(currentDirectoryExpected));
-            while(br.ready()){
-                expected += br.readLine();
-            }
-            br.close();
-        } catch(IOException e){
-            System.out.println(e.getMessage());
-        }
-        Encrypt enc = new Encrypt();
-        File file = new File("tests/EncryptedBaconian.txt");
-        String currentDirectory = file.getAbsolutePath();
-        String input = "";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        output = enc.encrypt(new File(currentDirectory), "bacon");
-        assertEquals(expected,output);
-    }
-
 }
