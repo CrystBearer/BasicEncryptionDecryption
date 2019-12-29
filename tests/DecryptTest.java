@@ -29,7 +29,7 @@ public class DecryptTest {
         String input = "13";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        output = dec.decrypt(new File(currentDirectory), "rot13");
+        output = dec.decrypt(new File(currentDirectory), "caesar");
         assertEquals(expected,output);
     }
 
@@ -54,7 +54,7 @@ public class DecryptTest {
         String input = "24";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        output = dec.decrypt(new File(currentDirectory), "rot13");
+        output = dec.decrypt(new File(currentDirectory), "caesar");
         assertEquals(expected,output);
     }
 

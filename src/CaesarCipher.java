@@ -1,7 +1,7 @@
 /**
  * Algorithm that shifts the character by the key
  */
-public class Rot13 implements Algorithm {
+public class CaesarCipher implements Algorithm {
     /**
      * Encrypts the given string input
      * @param input Plaintext to encrypt
