@@ -1,5 +1,8 @@
 # Basic Encryption Decryption
-Implementation of different types of ciphers to be used on files and string input.
+Implementation of different types of ciphers to be used on files and string input.    
+Here are the following algorithms implemented so far:   
+1. Caesar
+2. Baconian
 
 ## Getting Started
 

@@ -67,11 +67,7 @@ public class Encrypt {
     public String getKey(String algoName){
         String key = "";
         switch(algoName){
-<<<<<<< HEAD
             case "caesar":
-=======
-            case "rot13":
->>>>>>> master
                 Scanner scan = new Scanner(System.in);
                 System.out.println("Enter key: ");
                 key = scan.next();
