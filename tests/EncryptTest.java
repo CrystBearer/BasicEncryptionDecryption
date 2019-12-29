@@ -29,7 +29,7 @@ public class EncryptTest {
         String input = "13";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        output = enc.encrypt(new File(currentDirectory), "rot13");
+        output = enc.encrypt(new File(currentDirectory), "caesar");
         assertEquals(expected,output);
     }
 
@@ -54,7 +54,7 @@ public class EncryptTest {
         String input = "24";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
-        output = enc.encrypt(new File(currentDirectory), "rot13");
+        output = enc.encrypt(new File(currentDirectory), "caesar");
         assertEquals(expected,output);
     }
 
