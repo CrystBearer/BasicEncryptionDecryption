@@ -25,7 +25,7 @@ public class BaconianCipher implements Algorithm {
      * Converts the binary character string into Baconian
      * @param charBin current character to convert
      * @return Converted string of the given binary character string
-     */
+     */ 
     public String convert(char charBin){
         String output = "";
         for(char bin: Integer.toBinaryString(charBin-'a').toCharArray()){
