@@ -9,7 +9,8 @@ public class BaconianTest {
         public void encryptTest(){
             String expected = "AAAAA BAABABAABBABBBAABAAAAAABA BAABA AABBABABAAABAAAAAABBAABAA BAABBABBBA ABBBBAABAAAAAAAAAABAAABAA ABBBAAABAB ABBAAABAAAABBABAAABB AAAAAABBABBAABBABAAAAAABBABBBABAABBAABAA BAABBABBBA AAAAAABBABBABBBABAAAAABAABAABBBBAAA";
             Algorithm algo = new BaconianCipher();
-            String inputString = "A stoic's guide to Peace of Mind: Antidote to Anxiety";
+            String inputString = "A stoic's guide to Peace of Mind Antidote to Anxiety";
+            inputString = inputString.toLowerCase();
             String key = "";
             String outputString = algo.encrypt(inputString, key);
             assertEquals(expected, outputString);
@@ -17,7 +18,8 @@ public class BaconianTest {
 
         @Test(timeout=1000)
         public void decryptTest(){
-            String expected = "A stoic's guide to Peace of Mind: Antidote to Anxiety";
+            String expected = "A stoic s guide to Peace of Mind Antidote to Anxiety";
+            expected = expected.toLowerCase();
             Algorithm algo = new BaconianCipher();
             String inputString = "AAAAA BAABABAABBABBBAABAAAAAABA BAABA AABBABABAAABAAAAAABBAABAA BAABBABBBA ABBBBAABAAAAAAAAAABAAABAA ABBBAAABAB ABBAAABAAAABBABAAABB AAAAAABBABBAABBABAAAAAABBABBBABAABBAABAA BAABBABBBA AAAAAABBABBABBBABAAAAABAABAABBBBAAA";
             String key = "";

@@ -1,5 +1,6 @@
 /**
  * Algorithm that encrypts and decrypts based on Bacon Cipher
+ * This cipher implementation does not include punctuation and will classify it as whitespace if encountered
  */
 public class BaconianCipher implements Algorithm {
     /**
@@ -105,7 +106,7 @@ public class BaconianCipher implements Algorithm {
             output += this.padding(s);
             output += this.convert(s);
           } else {
-              output += s;
+              output += " ";
           }
         }
         return output;
