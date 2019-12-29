@@ -7,20 +7,20 @@ public class Decrypt {
     public Decrypt(){
         this.algorithms = new HashMap<String, Algorithm>(5);
         this.algorithms.put("rot13", new Rot13());
+        this.algorithms.put("bacon", new BaconianCipher());
     }
 
     /**
      * Decrypts the given File
      * @param input File of the given path from the command line
-     * @return String name of the algorithm given
+     * @param name of the algorithm given
+     * @return decrypted string
      */
     public String decrypt(File input, String name){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter key: ");
-        String key = scan.next();
         String decryptedOutput = "";
         if(this.algorithms.containsKey(name)){
             try {
+                String key = this.getKey(name);
                 BufferedReader br =  new BufferedReader(new FileReader(input));
                 String fileContent = "";
                 while(br.ready()){
@@ -41,21 +41,37 @@ public class Decrypt {
 
 
     /**
-     * Decrypts the given string input
+     * Decrypts the given File
      * @param input File of the given path from the command line
-     * @return String name of the algorithm given
+     * @param name of the algorithm given
+     * @return decrypted string
      */
     public String decrypt(String input, String name){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter key: ");
-        String key = scan.next();
         if(this.algorithms.containsKey(name)){
+            String key = this.getKey(name);
             String decryptedOutput = this.algorithms.get(name).decrypt(input,key);
             return decryptedOutput;
         } else {
             throw new RuntimeException("\""+input+"\"" + " algorithm does not exist.");
         }
     }
+
+    public String getKey(String algoName){
+        String key = "";
+        switch(algoName){
+            case "rot13":
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Enter key: ");
+                key = scan.next();
+                break;
+            case "bacon":
+                break;
+            default:
+                throw new RuntimeException("\""+algoName+"\"" + " algorithm does not exist.");
+        }
+        return key;
+    }
+
 
     /**
      * Takes in input from the user

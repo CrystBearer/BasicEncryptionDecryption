@@ -76,7 +76,7 @@ public class EncryptTest {
         Encrypt enc = new Encrypt();
         File file = new File("tests/DecryptedBaconian.txt");
         String currentDirectory = file.getAbsolutePath();
-        String input = "13";
+        String input = "";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         output = enc.encrypt(new File(currentDirectory), "bacon");
