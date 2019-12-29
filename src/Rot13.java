@@ -5,7 +5,7 @@ public class Rot13 implements Algorithm {
     /**
      * Encrypts the given string input
      * @param input Plaintext to encrypt
-     * @param key used to decrypt by that value
+     * @param key used to encrypt by that value
      * @return String of the decrypted string
      */
     public String encrypt(String input, String key){
@@ -33,7 +33,7 @@ public class Rot13 implements Algorithm {
      * Decrypts the given string input
      * @param input Ciphertext to decrypt
      * @param key used to decrypt by that value
-     * @return String of the decrypted string
+     * @return String of the encrypted string
      */
     public String decrypt(String input, String key){
         String output = "";

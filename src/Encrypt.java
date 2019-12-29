@@ -10,19 +10,19 @@ public class Encrypt {
     public Encrypt(){
         this.algorithms = new HashMap<String, Algorithm>(5);
         this.algorithms.put("rot13", new Rot13());
+        this.algorithms.put("bacon", new BaconianCipher());
     }
 
     /**
      * Encrypts the given File
      * @param input File of the given path from the command line
-     * @return String name of the algorithm given
+     * @param name algorithm
+     * @return encrypted string
      */
     public String encrypt(File input, String name){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter key: ");
-        String key = scan.next();
         String encryptedOutput = "";
         if(this.algorithms.containsKey(name)){
+            String key = this.getKey(name);
             try {
                 BufferedReader br =  new BufferedReader(new FileReader(input));
                 String fileContent = "";
@@ -44,20 +44,40 @@ public class Encrypt {
 
 
     /**
-     * Encrypts the given string input
+     * Encrypts the given File
      * @param input File of the given path from the command line
-     * @return String name of the algorithm given
+     * @param name algorithm name
+     * @return encrypted string
      */
     public String encrypt(String input, String name){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter key: ");
-        String key = scan.next();
+        String key = this.getKey(name);
         if(this.algorithms.containsKey(name)){
             String encryptedOutput = this.algorithms.get(name).encrypt(input,key);
             return encryptedOutput;
         } else {
             throw new RuntimeException("\""+input+"\"" + " algorithm does not exist.");
         }
+    }
+
+    /**
+     * Enters the key from user
+     * @param algoName name of the type of cipher
+     * @return String key
+     */
+    public String getKey(String algoName){
+        String key = "";
+        switch(algoName){
+            case "rot13":
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Enter key: ");
+                key = scan.next();
+                break;
+            case "bacon":
+                break;
+            default:
+                throw new RuntimeException("\""+algoName+"\"" + " algorithm does not exist.");
+        }
+        return key;
     }
 
     /**
