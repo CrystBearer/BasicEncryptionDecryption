@@ -13,6 +13,7 @@ This is a basic program, so you will just need a basic IDE, or code editor, JDK 
 You will need the following:
 1. JDK 11+   
 2. JUnits 4.12    
+3. JavaFX 13.0.1   
 
 ### Installing
 Clone this project and open with IntellJ.
