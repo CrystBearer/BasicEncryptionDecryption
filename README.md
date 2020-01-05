@@ -20,7 +20,7 @@ Clone this project and open with IntellJ. When setting up JavaFX, make sure to f
 
 ## Built With
 * [Java 11 Documentation](https://docs.oracle.com/en/java/javase/11/docs/api/index.html)
-* [JUnit 4](https://junit.org/junit4/javadoc/latest/))
+* [JUnit 4](https://junit.org/junit4/javadoc/latest/)
 * [JavaFX 13.0.1](https://gluonhq.com/products/javafx/)
 
 ## Authors  
