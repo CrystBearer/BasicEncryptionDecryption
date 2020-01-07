@@ -5,27 +5,33 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #2F2D2D;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
    <children>
-      <MenuBar style="-fx-background-color: #FFA800;" fx:id="menuBar">
+      <MenuBar fx:id="menuBar" style="-fx-background-color: #FFA800;">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Open..." fx:id="openButton" />
-              <MenuItem mnemonicParsing="false" text="Save" fx:id="saveButton" />
-                  <MenuItem mnemonicParsing="false" text="Save As..."  fx:id="saveAsButton"/>
+                  <MenuItem fx:id="openButton" mnemonicParsing="false" text="Open..." onAction="#openMenuAction" />
+              <MenuItem fx:id="saveButton" mnemonicParsing="false" text="Save" />
+                  <MenuItem fx:id="saveAsButton" mnemonicParsing="false" text="Save As..." />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="Exit" fx:id="exitButton" onAction="#exitMenuAction"/>
+                  <MenuItem fx:id="exitButton" mnemonicParsing="false" onAction="#exitMenuAction" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Mode">
             <items>
-                  <RadioMenuItem mnemonicParsing="false" text="Encrypt" />
-                  <RadioMenuItem mnemonicParsing="false" text="Decrypt" />
+                  <RadioMenuItem mnemonicParsing="false" text="Encrypt">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="modes" />
+                     </toggleGroup></RadioMenuItem>
+                  <RadioMenuItem mnemonicParsing="false" text="Decrypt" toggleGroup="$modes" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Cipher">
             <items>
-                  <RadioMenuItem mnemonicParsing="false" text="Baconian" />
-                  <RadioMenuItem mnemonicParsing="false" text="Caesar" />
+                  <RadioMenuItem mnemonicParsing="false" text="Baconian">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="ciphers" />
+                     </toggleGroup></RadioMenuItem>
+                  <RadioMenuItem mnemonicParsing="false" text="Caesar" toggleGroup="$ciphers" />
             </items>
           </Menu>
         </menus>
@@ -36,7 +42,7 @@
                <content>
                   <VBox focusTraversable="true" prefHeight="373.0" prefWidth="171.0" style="-fx-background-color: #2F2D2D;">
                      <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" opacity="0.8" prefHeight="25.0" prefWidth="178.0" style="-fx-background-color: #FFB800;" text="+ Add File " textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" />
+                        <Button alignment="CENTER" mnemonicParsing="false" opacity="0.8" prefHeight="25.0" prefWidth="178.0" style="-fx-background-color: #FFB800;" text="+ Add File " textAlignment="CENTER" wrapText="true" VBox.vgrow="ALWAYS" onAction="#openMenuAction"/>
                         <ListView prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                      </children>
                   </VBox>
@@ -44,7 +50,7 @@
             </ScrollPane>
             <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="401.0" prefWidth="416.0" style="-fx-background-color: #2F2D2D;">
                <content>
-                  <TextArea prefHeight="373.0" prefWidth="478.0" style="-fx-background-color: #2F2D2D;" wrapText="true" />
+                  <TextArea prefHeight="373.0" prefWidth="478.0" style="-fx-background-color: #2F2D2D;" wrapText="true" fx:id="textAreaContent" />
                </content>
             </ScrollPane>
          </items>

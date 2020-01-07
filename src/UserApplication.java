@@ -24,10 +24,9 @@ public class UserApplication extends Application {
     @Override
     public void start(Stage primaryStage) {
         createMainWindow(primaryStage);
-//        for(Menu s: menuBar.getMenus()){
-//            System.out.println(s.getText()); // Gets the name of the menu
-//        }
     }
+
+
 
     /**
      * Creates the main window of the application
@@ -40,6 +39,8 @@ public class UserApplication extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("app.fxml"));
             Parent root = loader.load();
             myController = loader.getController();
+            myData = new Model(myController);
+            myController.setModel(myData);
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
         } catch (Exception e) {
@@ -53,12 +54,24 @@ public class UserApplication extends Application {
         primaryStage.show();
     }
 
+
+
     /**
      * Getter method for Controller
      * @return      Controller for app laoded with fxml
      */
-    public Controller Controller(){
+    public Controller getMyController(){
         return myController;
+    }
+
+
+
+    /**
+     * Getter method for Model
+     * @return      Model for app laoded with fxml
+     */
+    public Model getMyData(){
+        return myData;
     }
 
     private Controller myController;
